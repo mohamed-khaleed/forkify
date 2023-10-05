@@ -3,9 +3,10 @@ import icons from 'url:../../img/icons.svg';
 class PaginationView extends View {
   _parentElement = document.querySelector('.pagination');
   _generateMarkup(){
+    
     const currentPage= this._data.page;
     const numPages= Math.ceil(this._data.results.length/this._data. resultPerPage) ;
-  
+     if(!numPages)return"" 
     //page 1 , and there are other pages
     if( currentPage === 1 && numPages> 1 ) {
         return `
@@ -48,7 +49,7 @@ class PaginationView extends View {
     }
     //page 1 , and there is no other pages
     if(numPages===1) return ""
-
+    
 
   }
 
